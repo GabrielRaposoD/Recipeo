@@ -16,6 +16,7 @@ import { HTMLInputTypeAttribute } from 'react'
 import { Input } from '@/components/ui/input'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
+import { useRouter } from 'next/navigation'
 import { useToast } from '@/components/ui/use-toast'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -60,6 +61,7 @@ const LoginFormItem = ({
 
 export default function Login() {
   const { toast } = useToast()
+  const router = useRouter()
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -85,10 +87,7 @@ export default function Login() {
         variant: 'destructive',
       })
     } else if (res.status === 200) {
-      toast({
-        title: 'Login successful',
-        description: 'You have successfully logged in',
-      })
+      router.push('/dashboard')
     } else {
       toast({
         title: 'An error occurred',

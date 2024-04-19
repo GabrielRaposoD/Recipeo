@@ -10,7 +10,8 @@ export default function Home() {
         alt="onboarding image"
         width={430}
         height={400}
-        className="pointer-events-none absolute -z-10 -mt-6"
+        className="pointer-events-none absolute -z-10 -mt-6 h-auto w-auto"
+        priority
       />
       <hr className="flex-1" />
       <div className="flex flex-col pb-10">

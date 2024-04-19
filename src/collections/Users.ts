@@ -1,14 +1,25 @@
 import type { CollectionConfig } from 'payload/types'
-import { PayloadHandler } from 'payload/config'
 
 export const Users: CollectionConfig = {
   slug: 'users',
-  admin: {
-    useAsTitle: 'email',
-  },
   auth: true,
   fields: [
-    // Email added by default
-    // Add more fields as needed
+    {
+      name: 'username',
+      label: 'Username',
+      type: 'text',
+      minLength: 3,
+      saveToJWT: true,
+      unique: true,
+      required: true,
+    },
+    {
+      name: 'name',
+      label: 'Full Name',
+      type: 'text',
+      minLength: 3,
+      saveToJWT: true,
+      required: true,
+    },
   ],
 }

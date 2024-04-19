@@ -24,6 +24,7 @@ export interface Config {
  */
 export interface User {
   id: number;
+  isAdministrator?: boolean | null;
   updatedAt: string;
   createdAt: string;
   email: string;

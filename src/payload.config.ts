@@ -1,3 +1,4 @@
+import { Admins } from './collections/Admins'
 import { Users } from './collections/Users'
 import { buildConfig } from 'payload/config'
 // import sharp from 'sharp'
@@ -12,9 +13,9 @@ const dirname = path.dirname(filename)
 
 export default buildConfig({
   admin: {
-    user: Users.slug,
+    user: Admins.slug,
   },
-  collections: [Users],
+  collections: [Users, Admins],
   editor: lexicalEditor({}),
   // plugins: [payloadCloud()], // TODO: Re-enable when cloud supports 3.0
   secret: process.env.PAYLOAD_SECRET || '',
